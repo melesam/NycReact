@@ -25,11 +25,20 @@ class App extends Component {
       <div className="text-center">
         <Header/>
 
-        
-        <ResultsPage articles={this.state.articles}/>
         <SearchPage/>
-        <SavedArticles/>
-        <p>This is my app</p>
+
+      <div className="row">
+          <div className="col-md-6">
+            <ResultsPage articles={this.state.articles}/>
+          </div>
+    
+      
+        <div className="col-md-6">
+          <SavedArticles/>
+        </div>
+
+      </div>
+        
       </div>
     );
   }

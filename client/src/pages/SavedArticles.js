@@ -1,8 +1,10 @@
 import React from "react";
 import Panel from "../components/Panel";
+import List from "../components/List";
 
 const SavedArticles = () => (
-    <Panel title={"Saved Articles"}>
+    <Panel name={"Saved Articles"}>
+        <List articles={props.savedArticles}/>
     </Panel>
 );
 
