@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header";
+import ResultsPage from "./pages/ResultsPage";
+import SearchPage from "./pages/SearchPage";
+import SavedArticles from "./pages/SavedArticles";
+import api from "./utility/api";
+
 
 class App extends Component {
+  state = {
+    articles: []
+  }
+
+  componentDidMount = () => {
+    api.getNYTSearch()
+    .then(res =>{
+      this.setState({
+        articles: res.data
+      });
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="text-center">
+        <Header/>
+
+        
+        <ResultsPage articles={this.state.articles}/>
+        <SearchPage/>
+        <SavedArticles/>
+        <p>This is my app</p>
       </div>
     );
   }
