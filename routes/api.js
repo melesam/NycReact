@@ -11,14 +11,12 @@ module.exports = (app) => {
                 "begin_date" : "20050101",
                 "end_date" : "20180101",
                 "sort" : "newest"
-            }
+            },
         }, (err, response, body) => {
-            if(err){
-                return console.log(err);
-            }
+            
             const validKeys = ["web_url", "snippet", "pub_date"]
             const parsedBody = JSON.parse(body);
-            const filteredResults = parsedBody.response.docs.map( doc => filterObj(doc, validKeys))
+            const filteredResults = parsedBody.response.docs.map( doc => filterObj(doc, validKeys));
             res.json(filteredResults);
 
         });
