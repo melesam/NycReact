@@ -8,7 +8,8 @@ import api from "./utility/api";
 
 class App extends Component {
   state = {
-    articles: []
+    articles: [],
+    savedArticles: []
   }
 
   componentDidMount = () => {
@@ -34,7 +35,7 @@ class App extends Component {
     
       
         <div className="col-md-6">
-          <SavedArticles/>
+          <SavedArticles savedArticles={this.state.savedArticles}/>
         </div>
 
       </div>
